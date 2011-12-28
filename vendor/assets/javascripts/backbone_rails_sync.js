@@ -59,8 +59,10 @@
     params.complete = function(jqXHR, textStatus) {
       model.trigger('sync:end');
       if (complete) complete(jqXHR, textStatus);
-      if (options.success) success(model, jqXHR);
     };
+    params.success = function(jqXHR, textStatus) {
+      if(options.success) options.success(jqXHR, textStatus)
+    }
     
     // Make the request.
     return $.ajax(params);
