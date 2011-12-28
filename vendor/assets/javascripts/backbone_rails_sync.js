@@ -57,7 +57,7 @@
     // Trigger the sync end event
     var complete = options.complete;
     params.complete = function(jqXHR, textStatus) {
-      model.trigger('sync:end');
+      model.trigger('sync:end', model);
       if (complete) complete(jqXHR, textStatus);
     };
     params.success = function(jqXHR, textStatus) {
